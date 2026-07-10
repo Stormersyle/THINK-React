@@ -1,3 +1,6 @@
+/* Font Awesome (for footer icons + accordion caret). Loaded from CDN. */
+@import url('https://use.fontawesome.com/releases/v5.15.4/css/all.css');
+
 /* Fonts — expects /public/fonts/... to exist. See README. */
 @font-face {
   font-family: Cocogoose;
@@ -7,9 +10,6 @@
   font-family: Avenir;
   src: url('/fonts/avenir/Avenir.ttc');
 }
-
-/* Font Awesome (for footer icons + accordion caret). Loaded from CDN. */
-@import url('https://use.fontawesome.com/releases/v5.15.4/css/all.css');
 
 *,
 *::before,
