@@ -1,0 +1,64 @@
+/* Fonts — expects /public/fonts/... to exist. See README. */
+@font-face {
+  font-family: Cocogoose;
+  src: url('/fonts/cocogoose/Cocogoose Pro-trial.ttf');
+}
+@font-face {
+  font-family: Avenir;
+  src: url('/fonts/avenir/Avenir.ttc');
+}
+
+/* Font Awesome (for footer icons + accordion caret). Loaded from CDN. */
+@import url('https://use.fontawesome.com/releases/v5.15.4/css/all.css');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  text-align: center;
+  font-family: 'Avenir', system-ui, -apple-system, Segoe UI, Helvetica, Arial,
+    sans-serif;
+  background-color: #f7f7f7;
+  color: #4c4c4c;
+  scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: #ffca36;
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(255, 187, 0);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.bold {
+  font-family: Cocogoose;
+}
