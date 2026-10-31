@@ -16,10 +16,10 @@ export default function Team() {
 
   return (
     <section id="team">
-      <div className="title">THE THINK TEAM</div>
+      <h2 className="title">THE THINK TEAM</h2>
       <br />
       <br />
-      <div className="carousel">
+      <div className="carousel" role="region" aria-label="THINK team members">
         <button
           type="button"
           className="carousel-btn prev"
@@ -37,7 +37,7 @@ export default function Team() {
               onClick={() => setActive(m)}
               aria-label={`Open bio for ${m.name}`}
             >
-              <img src={m.photo} alt={m.name} />
+              <img src={m.photo} alt="" />
             </button>
           ))}
         </div>

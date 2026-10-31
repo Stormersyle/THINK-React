@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
+import { APPLY_URL } from '../config/program.js'
 
 const links = [
   ['GUIDELINES', '#guidelines'],
   ['TIMELINE', '#timeline'],
-  ['FINALISTS', '#currentwinners'],
+  ['RESULTS', '#results'],
   ['TEAM', '#team'],
   ['RESOURCES', '#resources'],
   ['FAQ', '#faq'],
@@ -22,20 +23,27 @@ export default function Navbar() {
   }, [])
 
   return (
-    <nav className={`navbar ${visible ? 'visible' : ''}`}>
-      <a href="#" className="navbar-brand">
-        <img src="/images/think_logo_trans.png" alt="MIT THINK" />
+    <nav
+      className={`navbar ${visible ? 'visible' : ''}`}
+      aria-label="Main"
+    >
+      <a href="#main" className="navbar-brand">
+        <img src="/images/think_logo_trans.png" alt="MIT THINK — back to top" />
       </a>
       <button
         className="navbar-toggler"
         type="button"
         aria-label="Toggle navigation"
+        aria-controls="navbar-menu"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
       >
         <span className="navbar-toggler-icon" />
       </button>
-      <ul className={`navbar-menu ${open ? 'open' : ''}`}>
+      <ul
+        id="navbar-menu"
+        className={`navbar-menu ${open ? 'open' : ''}`}
+      >
         {links.map(([label, href]) => (
           <li key={href}>
             <a href={href} onClick={() => setOpen(false)}>
@@ -43,6 +51,17 @@ export default function Navbar() {
             </a>
           </li>
         ))}
+        <li>
+          <a
+            className="nav-apply"
+            href={APPLY_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
+            APPLY
+            <span className="visually-hidden"> (opens in a new tab)</span>
+          </a>
+        </li>
       </ul>
     </nav>
   )

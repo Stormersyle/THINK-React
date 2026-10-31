@@ -1,5 +1,9 @@
 const yearlyLinks = [
   [
+    '2025',
+    'https://docs.google.com/document/d/10rD7RwLhPH-HTpV26LjkLb5tVEJGVFr7HzcG90tteP4/edit?usp=sharing',
+  ],
+  [
     '2024',
     'https://docs.google.com/document/d/1UnsnUfEfHFEf6GVApo6ydvrMgK2deo5ZnI-iiNG8Yqs/edit?usp=sharing',
   ],
@@ -26,27 +30,27 @@ const yearlyLinks = [
 
 export default function Finalists() {
   return (
-    <section id="currentwinners">
-      <div className="title">FINALISTS</div>
+    <section id="results">
+      <h2 className="title">RESULTS</h2>
       <br />
       <br />
-      <h3>
-        View the 2024-25 finalists this year{' '}
-        <a
-          href="https://docs.google.com/document/d/10rD7RwLhPH-HTpV26LjkLb5tVEJGVFr7HzcG90tteP4/edit?usp=sharing"
-          target="_blank"
-          rel="noreferrer"
-        >
-          here
+      <p>
+        View the 2025–2026 Finalists Here:{' '}
+        <a href="/static_files/Results_2026.pdf">
+          Full Results<span className="visually-hidden"> (PDF)</span>
         </a>
-        .
-      </h3>
+      </p>
       <br />
-      <h3>
+      <p>
         See a full list of THINK winners from{' '}
         {yearlyLinks.map(([year, url], i) => (
           <span key={year}>
-            <a href={url} target="_blank" rel="noreferrer">
+            <a
+              href={url}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${year} winners (opens in a new tab)`}
+            >
               {year}
             </a>
             {i < yearlyLinks.length - 2
@@ -56,7 +60,7 @@ export default function Finalists() {
                 : '.'}
           </span>
         ))}
-      </h3>
+      </p>
     </section>
   )
 }

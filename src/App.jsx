@@ -14,15 +14,22 @@ import './styles/App.css'
 export default function App() {
   return (
     <>
-      <Hero />
+      <a className="skip-link" href="#content">
+        Skip to main content
+      </a>
       <Navbar />
-      <Intro />
-      <Guidelines />
-      <Timeline />
-      <Finalists />
-      <Team />
-      <Resources />
-      <Faq />
+      <main>
+        <Hero />
+        <div id="content" tabIndex={-1}>
+          <Intro />
+          <Guidelines />
+          <Timeline />
+          <Finalists />
+          <Team />
+          <Resources />
+          <Faq />
+        </div>
+      </main>
       <section id="end">
         <Sponsors />
         <Footer />

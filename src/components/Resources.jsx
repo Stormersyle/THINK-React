@@ -1,14 +1,14 @@
 export default function Resources() {
   return (
     <section id="resources">
-      <div className="title">RESOURCES</div>
+      <h2 className="title">RESOURCES</h2>
       <div className="content">
         <div className="text-center">
           <a href="/static_files/THINK_Program_Resources.pdf" download>
             <img
               src="/images/resourcespdfpic.png"
               className="img-fluid"
-              alt="Program Resources PDF preview"
+              alt="Download the THINK Program Resources (PDF)"
             />
           </a>
         </div>

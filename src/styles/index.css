@@ -1,14 +1,25 @@
 /* Font Awesome (for footer icons + accordion caret). Loaded from CDN. */
 @import url('https://use.fontawesome.com/releases/v5.15.4/css/all.css');
 
-/* Fonts — expects /public/fonts/... to exist. See README. */
-@font-face {
-  font-family: Cocogoose;
-  src: url('/fonts/cocogoose/Cocogoose Pro-trial.ttf');
-}
-@font-face {
-  font-family: Avenir;
-  src: url('/fonts/avenir/Avenir.ttc');
+/* Plus Jakarta Sans is loaded from Google Fonts in index.html. */
+
+:root {
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI',
+    Helvetica, Arial, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI',
+    Helvetica, Arial, sans-serif;
+
+  /* Colors. --gold is the brand yellow; it is only ~1.5:1 against the light
+     background, so it is reserved for decoration and for text on dark
+     backgrounds. --gold-text is a darker gold that meets WCAG 2.1 AA (4.5:1)
+     on #f7f7f7 / white and is used for links and headings on light sections. */
+  --gold: #ffca36;
+  --gold-text: #8a5f00;
+  --gold-text-hover: #6b4900;
+  --ink: #4c4c4c;
+  --muted-text: #595959; /* 7:1 on white — replaces #bcbcbc text */
+  --bg: #f7f7f7;
+  --focus: #1a5fb4;
 }
 
 *,
@@ -30,11 +41,24 @@ body {
   width: 100%;
   overflow-x: hidden;
   text-align: center;
-  font-family: 'Avenir', system-ui, -apple-system, Segoe UI, Helvetica, Arial,
-    sans-serif;
-  background-color: #f7f7f7;
-  color: #4c4c4c;
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--ink);
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body,
+  .carousel-track {
+    scroll-behavior: auto !important;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }
 
 img {
@@ -48,11 +72,46 @@ img {
 }
 
 a {
-  color: #ffca36;
-  text-decoration: none;
+  color: var(--gold-text);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 a:hover {
-  color: rgb(255, 187, 0);
+  color: var(--gold-text-hover);
+}
+
+/* Visible keyboard focus everywhere (WCAG 2.4.7) */
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Skip link (WCAG 2.4.1) — hidden until focused */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  color: var(--ink);
+  font-weight: bold;
+  border-radius: 4px;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .text-center {
@@ -60,5 +119,6 @@ a:hover {
 }
 
 .bold {
-  font-family: Cocogoose;
+  font-family: var(--font-display);
+  font-weight: 800;
 }

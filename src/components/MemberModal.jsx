@@ -21,6 +21,7 @@ export default function MemberModal({ member, onClose }) {
     <dialog
       ref={ref}
       className="modal"
+      aria-labelledby="member-modal-name"
       onClose={onClose}
       onClick={handleClick}
     >
@@ -30,17 +31,17 @@ export default function MemberModal({ member, onClose }) {
             type="button"
             className="modal-close"
             onClick={onClose}
-            aria-label="Close"
+            aria-label="Close bio"
           >
             &times;
           </button>
           <div className="modal-body">
             <div className="modal-photo">
-              <img src={member.photo} alt={member.name} />
+              <img src={member.photo} alt="" />
             </div>
             <div className="modal-info">
-              <h4>{member.name}</h4>
-              <h5>{member.classYear}</h5>
+              <h2 id="member-modal-name">{member.name}</h2>
+              <p className="class-year">{member.classYear}</p>
               <p>{member.bio}</p>
             </div>
           </div>

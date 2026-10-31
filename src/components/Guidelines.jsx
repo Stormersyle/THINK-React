@@ -1,14 +1,14 @@
 export default function Guidelines() {
   return (
     <section id="guidelines">
-      <div className="title">GUIDELINES</div>
+      <h2 className="title">GUIDELINES</h2>
       <div className="content">
         <div className="text-center">
           <a href="/static_files/THINK_Program_Guidelines_2026.pdf" download>
             <img
               src="/images/guidelinepdfpic.png"
               className="img-fluid"
-              alt="Program Guidelines PDF preview"
+              alt="Download the THINK Program Guidelines (PDF)"
             />
           </a>
         </div>

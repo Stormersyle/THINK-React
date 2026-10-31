@@ -3,6 +3,9 @@
    ========================================================================== */
 .title {
   font-size: 3em;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-top: 0;
   margin-bottom: 0;
 }
 
@@ -24,11 +27,14 @@
   border: none;
   background-color: #4c4c4c;
   opacity: 0;
+  pointer-events: none;
   transition: opacity 0.3s ease;
 }
 
-.navbar.visible {
+.navbar.visible,
+.navbar:focus-within {
   opacity: 1;
+  pointer-events: auto;
 }
 
 .navbar-brand {
@@ -71,27 +77,27 @@
 }
 
 .navbar-menu a {
-  color: #bcbcbc;
+  color: var(--muted-text);
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .navbar-menu a:hover {
-  color: #4c4c4c;
+  color: var(--ink);
 }
 
 .navbar-menu .nav-apply {
-  color: #ffca36;
+  color: var(--gold-text);
+  font-weight: bold;
 }
 
 .navbar-menu .nav-apply:hover {
-  font-weight: bold;
-  color: #ffca36;
+  color: var(--gold-text-hover);
 }
 
 @media (max-width: 768px) {
   .navbar {
-    background-color: #bcbcbc;
+    background-color: #4c4c4c;
   }
   .navbar-toggler {
     display: inline-flex;
@@ -121,27 +127,66 @@
   padding-top: 30vh;
   padding-bottom: 30px;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url('/images/mit-background.jpg');
+    url('/images/mit-great-dome.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center 35%;
 }
 
 #main #logo {
+  display: block;
   width: 45%;
   height: auto;
-  margin-top: -80px;
-  margin-right: 10px;
+  margin: -80px auto 0;
 }
 
 #main #subtitle {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.2rem, 2.2vw, 1.85rem);
+  letter-spacing: 0.08em;
+  margin: 0.75em 0 0.5em;
+  padding: 0 1rem;
   color: #f7f7f7;
 }
 
+#main h1 {
+  margin: 0;
+}
+
 #main #apply-info {
-  color: #ffca36;
+  color: #f7f7f7;
   font-size: 16px;
+  line-height: 1.6;
   margin-top: 30px;
   margin-bottom: 150px;
+}
+
+#main #apply-info a {
+  color: var(--gold);
+}
+#main #apply-info a:hover {
+  color: #fff;
+}
+
+#main .apply-btn {
+  display: inline-block;
+  margin: 24px 0 8px;
+  padding: 14px 32px;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  letter-spacing: 0.04em;
+  color: #222 !important;
+  background-color: var(--gold);
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.2s;
+}
+#main .apply-btn:hover {
+  background-color: #fff;
+  transform: translateY(-1px);
+}
+#main .apply-btn:focus-visible {
+  outline-color: #fff;
 }
 
 #main .divider {
@@ -149,10 +194,6 @@
   margin: 30px auto 0;
   padding-top: 10px;
   border-top: 2px solid white;
-}
-
-#form-url {
-  color: rgb(116, 116, 232);
 }
 
 /* ==========================================================================
@@ -213,7 +254,7 @@
 }
 
 #intro .intro-col-label {
-  color: #ffca36;
+  color: var(--gold-text);
   margin-bottom: 15px;
   font-size: 28px;
   text-align: left;
@@ -230,7 +271,7 @@
 #resources {
   text-align: center;
   background-color: #f7f7f7;
-  font-family: Avenir;
+  font-family: var(--font-body);
   padding: 10vh 5vw 5vh;
   color: #4c4c4c;
   background-image: url('/images/triangle2.png');
@@ -241,7 +282,7 @@
 
 #guidelines .title,
 #resources .title {
-  font-family: Cocogoose;
+  font-family: var(--font-display);
   padding-bottom: 2px;
   display: inline-block;
   color: #4c4c4c;
@@ -250,6 +291,7 @@
 
 #guidelines h3,
 #resources h3 {
+  font-size: 1.17em;
   text-align: center;
   font-weight: bold;
 }
@@ -288,7 +330,7 @@
   display: inline-block;
   text-align: center;
   margin-bottom: 25px;
-  font-family: Cocogoose;
+  font-family: var(--font-display);
   font-size: 50px;
 }
 
@@ -399,7 +441,7 @@
 
 .timeline-title {
   margin-top: 0;
-  color: #ffca36;
+  color: var(--gold-text);
   font-weight: bold;
   text-align: left;
   padding-bottom: 10px;
@@ -441,7 +483,7 @@
 /* ==========================================================================
    Finalists
    ========================================================================== */
-#currentwinners {
+#results {
   text-align: center;
   padding: 10vh 10% 5vh;
   background-color: #f7f7f7;
@@ -451,20 +493,25 @@
   background-size: contain;
 }
 
-#currentwinners .title {
+#results .title {
   color: #4c4c4c;
   padding-bottom: 2px;
   display: inline-block;
-  font-family: Cocogoose;
+  font-family: var(--font-display);
   font-size: 50px;
 }
 
-#currentwinners h3 {
+#results h3 {
   line-height: 1.6;
 }
 
-#currentwinners a {
-  color: #ffca36;
+#results a {
+  color: var(--gold-text);
+}
+
+#results p {
+  font-size: 1.17em;
+  font-weight: bold;
 }
 
 /* ==========================================================================
@@ -485,7 +532,7 @@
   color: #4c4c4c;
   padding-bottom: 5px;
   display: inline-block;
-  font-family: Cocogoose;
+  font-family: var(--font-display);
   font-size: 50px;
 }
 
@@ -519,7 +566,8 @@
   padding: 0;
 }
 
-.carousel-cell:hover {
+.carousel-cell:hover,
+.carousel-cell:focus-visible {
   filter: grayscale(0);
 }
 
@@ -539,7 +587,7 @@
   background: transparent;
   border: none;
   cursor: pointer;
-  color: #ffca36;
+  color: var(--gold-text);
   font-size: 2rem;
   z-index: 3;
   padding: 0.5rem 1rem;
@@ -606,13 +654,16 @@
   flex: 1 1 300px;
 }
 
-.modal-info h4 {
-  font-family: Cocogoose;
+.modal-info h2 {
+  font-size: 1.5em;
+  font-weight: 800;
+  font-family: var(--font-display);
   margin: 0 0 0.25rem;
 }
 
-.modal-info h5 {
+.modal-info .class-year {
   font-weight: bold;
+  font-size: 0.95em;
   padding-bottom: 6px;
   margin: 0 0 0.75rem;
 }
@@ -651,7 +702,7 @@
 
 #faq .title {
   color: #4c4c4c;
-  font-family: Cocogoose;
+  font-family: var(--font-display);
   writing-mode: vertical-rl;
   font-size: 100px;
   flex: 0 0 auto;
@@ -668,8 +719,9 @@
 }
 
 .accordion-item summary {
+  font-weight: 700;
   background-color: #bcbcbc;
-  font-family: Cocogoose;
+  font-family: var(--font-display);
   color: #4c4c4c;
   padding: 1rem 1.25rem;
   cursor: pointer;
@@ -685,7 +737,7 @@
 }
 
 .accordion-item summary i {
-  color: #ffca36;
+  color: var(--gold-text);
   transition: transform 0.2s;
 }
 
@@ -695,12 +747,12 @@
 
 .accordion-body {
   background-color: white;
-  font-family: Avenir;
+  font-family: var(--font-body);
   padding: 1rem 1.25rem;
 }
 
 .accordion-body a {
-  color: #ffca36;
+  color: var(--gold-text);
 }
 
 @media (max-width: 992px) {
@@ -739,7 +791,7 @@
   color: #4c4c4c;
   padding-bottom: 2px;
   display: inline-block;
-  font-family: Cocogoose;
+  font-family: var(--font-display);
   font-size: 50px;
 }
 
@@ -767,7 +819,7 @@ footer {
 }
 
 footer .copyright {
-  color: #bcbcbc;
+  color: var(--muted-text);
   font-size: 1em;
   text-align: left;
 }
@@ -779,17 +831,17 @@ footer .copyright img {
 }
 
 footer .icons {
-  color: #bcbcbc;
+  color: var(--muted-text);
   display: flex;
   gap: 0.5rem;
 }
 
 footer .icons a {
-  color: #bcbcbc;
+  color: var(--muted-text);
 }
 
 footer .icons a:hover {
-  color: #4c4c4c;
+  color: var(--ink);
 }
 
 @media (max-width: 768px) {
@@ -800,4 +852,12 @@ footer .icons a:hover {
   footer .copyright {
     text-align: center;
   }
+}
+
+.navbar a,
+footer .icons a,
+#sponsors a,
+#guidelines .text-center a,
+#resources .text-center a {
+  text-decoration: none;
 }

@@ -3,11 +3,14 @@ import { timelineEvents } from '../data/timeline.js'
 export default function Timeline() {
   return (
     <section id="timeline">
-      <div className="title">TIMELINE</div>
+      <h2 className="title">TIMELINE</h2>
       <ul className="timeline">
         {timelineEvents.map((e, i) => (
           <li key={i} className={i % 2 === 1 ? 'timeline-inverted' : ''}>
-            <div className={`timeline-badge${e.isMit ? ' mit' : ''}`} />
+            <div
+              className={`timeline-badge${e.isMit ? ' mit' : ''}`}
+              aria-hidden="true"
+            />
             <div className="timeline-panel">
               <div className="timeline-heading">
                 <h3 className="timeline-title">

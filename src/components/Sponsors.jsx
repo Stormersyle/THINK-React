@@ -1,7 +1,7 @@
 export default function Sponsors() {
   return (
     <section id="sponsors">
-      <div className="title">PREMIER SPONSORS</div>
+      <h2 className="title">PREMIER SPONSORS</h2>
       <a href="https://empowerly.com/" target="_blank" rel="noreferrer">
         <img
           id="empowerly-logo"
@@ -12,7 +12,7 @@ export default function Sponsors() {
       </a>
       <br />
       <br />
-      <div className="title">GOLD SPONSORS</div>
+      <h2 className="title">GOLD SPONSORS</h2>
       <a href="https://www.non-trivial.org/" target="_blank" rel="noreferrer">
         <img
           id="nontrivial-logo"

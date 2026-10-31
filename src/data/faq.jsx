@@ -1,7 +1,18 @@
+import { APPLY_URL } from '../config/program.js'
+
 export const faqItems = [
   {
     q: 'How do I apply?',
-    a: 'Use the linked Google Form to submit your application.',
+    a: (
+      <>
+        Read the program guidelines, then submit your application through{' '}
+        <a href={APPLY_URL} target="_blank" rel="noreferrer">
+          the THINK application form
+          <span className="visually-hidden"> (opens in a new tab)</span>
+        </a>
+        .
+      </>
+    ),
   },
   {
     q: 'Can my proposal be longer than ten pages?',

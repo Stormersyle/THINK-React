@@ -1,12 +1,12 @@
 export default function Intro() {
   return (
     <section id="intro">
-      <div className="title">
+      <h2 className="title">
         THINK is a <span className="bold">science</span>,{' '}
         <span className="bold">research</span>, and{' '}
         <span className="bold">innovation</span> program for high school
         students.
-      </div>
+      </h2>
       <div className="content">
         <div className="row">
           <div className="col" id="premise">
